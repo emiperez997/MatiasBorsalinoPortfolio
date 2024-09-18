@@ -1,0 +1,88 @@
+---
+
+---
+
+<section>
+  <div class="draw">
+    <a href="/portfolio/draw">Dibujos</a>
+  </div>
+  <div class="paint">
+    <a href="/portfolio/paint">Pinturas</a>
+  </div>
+  <div class="photo">
+    <a href="/portfolio/photo">Fotos</a>
+  </div>
+  <div class="writting">
+    <a href="/portfolio/writting">Textos</a>
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: 50%;
+  }
+
+  a,
+  a:visited {
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  div:hover a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  div:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .draw {
+    background-image: url("/src/assets/fire_1.jpeg");
+  }
+
+  .paint {
+    background-image: url("/src/assets/fire_2.jpeg");
+  }
+
+  .photo {
+    background-image: url("/src/assets/fire_3.jpeg");
+  }
+
+  .writting {
+    background-image: url("/src/assets/fire_4.jpeg");
+  }
+
+  @media (width > 768px) {
+    section {
+      width: 80%;
+      height: 500px;
+      flex-direction: row;
+    }
+  }
+</style>

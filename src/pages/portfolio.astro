@@ -1,13 +1,24 @@
 ---
+import Navbar from "../components/Navbar.astro";
+import Pilars from "../components/Pilars.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Portfolio">
-  <section>
-    <div>
-      <h1>Portfolio</h1>
-    </div>
-  </section>
+  <Navbar />
+
+  <main>
+    <Pilars />
+  </main>
 </Layout>
 
-<style></style>
+<style>
+  main {
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle, #742020 1%, black 99%);
+  }
+</style>
