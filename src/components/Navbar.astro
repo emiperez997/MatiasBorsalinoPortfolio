@@ -1,10 +1,14 @@
 ---
+const url = Astro.url.pathname;
 
+console.log(url);
 ---
 
 <header>
   <section>
-    <h1>Matias Borsalino</h1>
+    <a href="/" class="logo">
+      <img src="/src/assets/logo.png" alt="Logo Matias" />
+    </a>
 
     <label for="menu-toggle">
       <svg
@@ -28,9 +32,21 @@
 
     <nav>
       <a class="nav-link" href="/">Inicio</a>
-      <a class="nav-link" href="/portfolio">Portfolio</a>
-      <a class="nav-link" href="/about">Sobre Mí</a>
-      <a class="nav-link" href="/contact">Contacto</a>
+      <a
+        class="nav-link"
+        class:list={{ active: url.includes("portfolio") }}
+        href="/portfolio">Portfolio</a
+      >
+      <a
+        class="nav-link"
+        class:list={{ active: url.includes("about") }}
+        href="/about">Sobre Mí</a
+      >
+      <a
+        class="nav-link"
+        class:list={{ active: url.includes("contact") }}
+        href="/contact">Contacto</a
+      >
     </nav>
   </section>
 </header>
@@ -38,9 +54,26 @@
 <style>
   header {
     width: 100%;
-    height: 50px;
+    height: 80px;
     display: flex;
     justify-content: center;
+    background-color: #aa885f;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .logo img {
+    width: auto;
+    height: 70px;
+  }
+
+  .logo h1 {
+    font-weight: bold;
+    font-size: 18px;
   }
 
   section {
@@ -73,7 +106,7 @@
   a {
     text-decoration: none;
     color: black;
-    font-size: 1.2rem;
+    font-size: 14px;
   }
 
   nav {
@@ -87,11 +120,21 @@
     border-radius: 5px;
   }
 
+  .active {
+    background-color: black;
+    color: white;
+  }
+
   .nav-link {
     width: 100%;
     padding: 10px;
     text-align: center;
     border: 1px solid black;
+  }
+
+  .nav-link:hover {
+    background-color: black;
+    color: white;
   }
 
   @media (width > 768px) {
