@@ -1,13 +1,12 @@
 ---
 const url = Astro.url.pathname;
-
-console.log(url);
 ---
 
 <header>
   <section>
     <a href="/" class="logo">
       <img src="/src/assets/logo.png" alt="Logo Matias" />
+      <h1>Matias Borsalino</h1>
     </a>
 
     <label for="menu-toggle">
@@ -73,7 +72,9 @@ console.log(url);
 
   .logo h1 {
     font-weight: bold;
+    color: white;
     font-size: 18px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
 
   section {
@@ -106,7 +107,7 @@ console.log(url);
   a {
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   nav {
@@ -163,3 +164,12 @@ console.log(url);
     }
   }
 </style>
+
+<script>
+  document.addEventListener("click", function (event) {
+    const checkbox = document.getElementById("menu-toggle");
+    const navbar = document.querySelector("nav");
+
+    console.log(event.target);
+  });
+</script>
