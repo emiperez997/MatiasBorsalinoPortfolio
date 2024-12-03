@@ -1,30 +1,47 @@
 ---
-const pilar = Astro.props.pilar;
-const title = Astro.props.title;
+interface Props {
+  pilar: "draw" | "photo";
+  title: string;
+}
 
-const images = {
+const { pilar } = Astro.props;
+const { title } = Astro.props;
+
+interface ImageContent {
+  alt: string;
+  src: string;
+}
+
+interface Image {
+  draw: ImageContent[];
+  photo: ImageContent[];
+}
+
+const PREFIX = "/src/assets/gallery";
+
+const images: Image = {
   draw: [
-    { alt: "Chair", src: "/src/assets/gallery/chair.jpeg" },
+    { alt: "Chair", src: `${PREFIX}/draw/chair.jpeg` },
     {
       alt: "Gray Background",
-      src: "/src/assets/gallery/gray_background_2.jpeg",
+      src: `${PREFIX}/draw/gray_background_2.jpeg`,
     },
-    { alt: "Red Background", src: "/src/assets/gallery/red_background.jpeg" },
+    { alt: "Red Background", src: `${PREFIX}/draw/red_background.jpeg` },
     {
       alt: "Green Background",
-      src: "/src/assets/gallery/green_background.jpeg",
+      src: `${PREFIX}/draw/green_background.jpeg`,
     },
   ],
   photo: [
-    { alt: "Logo Brick", src: "/src/assets/gallery/lobo_brick.jpeg" },
+    { alt: "Logo Brick", src: `${PREFIX}/photo/logo_brick.jpeg` },
     {
       alt: "Gray Background",
-      src: "/src/assets/gallery/gray_background_1.jpeg",
+      src: `${PREFIX}/photo/gray_background.jpeg`,
     },
-    { alt: "Red Background", src: "/src/assets/gallery/red_background.jpeg" },
+    { alt: "Red Background", src: `${PREFIX}/photo/green_background_2.jpeg` },
     {
       alt: "Table",
-      src: "/src/assets/gallery/table.jpeg",
+      src: `${PREFIX}/photo/table.jpeg`,
     },
   ],
 };
@@ -53,6 +70,7 @@ const images = {
   .title {
     width: 100%;
     text-align: center;
+    color: white;
   }
 
   h1 {
@@ -88,7 +106,7 @@ const images = {
 
   @media (width > 768px) {
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     section {
